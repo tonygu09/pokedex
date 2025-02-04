@@ -1,9 +1,15 @@
-export default function App() {
+import { Header } from "./components/Header"
+import { PokeCard } from "./components/PokeCard"
+import { SideNav } from "./components/SideNav"
+
+function App() {
   return(
-    <div>
-      <h3 className="text-6xl bg-amber-300">
-        Test
-      </h3>
-    </div>
+    <>
+      <Header />
+      <SideNav />
+      <PokeCard />
+    </>
   )
 }
+
+export default App
