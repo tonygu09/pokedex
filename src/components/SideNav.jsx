@@ -1,6 +1,6 @@
 import { first151Pokemon, getFullPokedexNumber } from "../utils"
 
-export function SideNav() {
+export default function SideNav() {
     return (
         <nav className="w-64 h-screen overflow-y-auto bg-gray-800 text-white flex flex-col p-4">
             {/* Header */}
