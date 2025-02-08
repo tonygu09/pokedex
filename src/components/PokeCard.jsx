@@ -10,6 +10,17 @@ export default function PokeCard(props) {
 
     const {name, height, abilities, stats, types, sprites} = data || {}
 
+    const imgList = Object.keys(sprites || {}).filter(val => {
+        if (!sprites[val]) {
+            return false;
+        }
+
+        if(['versions', 'other'].includes(val)) {
+            return false;
+        }
+        return true
+    })
+
     
     useEffect(() => { 
         // if loading, exit loop or if cache doesn't exist
@@ -66,16 +77,41 @@ export default function PokeCard(props) {
         )
     }
 
+    console.log(selectedPokemon)
+
     return (
+        
         <div>
             <div>
                 <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
                 <h2>{name}</h2>
             </div>
-            <div>
+            <div className="flex flex-row gap-2 justify-center">
                 {types.map((typeObj, typeIndex) => {
                     return (
                         <TypeCard key={typeIndex} type={typeObj?.type?.name}/>
+                    )
+                })}
+            </div>
+            <img src={'/pokemon/' + getFullPokedexNumber(selectedPokemon) + '.png'} alt={`${name}-large-img`}></img>
+            <div className="flex flex-row gap-2 justify-center">
+                {imgList.map((spriteURL, spriteURLIndex) => {
+                    const imgUrl = sprites[spriteURL]
+                    
+                    return(
+                        <img key={spriteURLIndex} src={imgUrl} alt ={`${name}-img-${spriteURL}`}></img>
+                    )
+                })}
+            </div>
+            <h3>Stats</h3>
+            <div>
+                {stats.map((statObj, statIndex) => {
+                    const { stat, base_stat } = statObj
+                    return (
+                        <div key={statIndex} className="flex flex-row gap-2 justify-center">
+                            <p>{stat?.name.replaceAll('-', ' ')}</p>
+                            <h4>{base_stat}</h4>
+                        </div>
                     )
                 })}
             </div>

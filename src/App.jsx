@@ -8,13 +8,15 @@ function App() {
   const [selectedPokemon, setSelectedPokemon] = useState(0)
 
   return(
-    <>
+    <div className="flex h-screen bg-gray-100">
       <Header />
       <SideNav 
         selectedPokemon={selectedPokemon} 
         setSelectedPokemon={setSelectedPokemon}/>
-      <PokeCard selectedPokemon={selectedPokemon}/>
-    </>
+      <div className="flex flex-grow justify-center items-center overflow-y-auto">
+        <PokeCard selectedPokemon={selectedPokemon}/>
+      </div>
+    </div>
   )
 }
 
