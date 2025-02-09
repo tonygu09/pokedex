@@ -82,33 +82,33 @@ export default function PokeCard(props) {
     return (
         
         <div>
-            <div>
+            <div className="flex flex-row gap-2 justify-start font-extrabold text-3xl mt-4">
                 <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
                 <h2>{name}</h2>
             </div>
-            <div className="flex flex-row gap-2 justify-center">
+            <div className="flex flex-row gap-2 justify-center mt-4">
                 {types.map((typeObj, typeIndex) => {
                     return (
                         <TypeCard key={typeIndex} type={typeObj?.type?.name}/>
                     )
                 })}
             </div>
-            <img src={'/pokemon/' + getFullPokedexNumber(selectedPokemon) + '.png'} alt={`${name}-large-img`}></img>
+            <img src={'/pokemon/' + getFullPokedexNumber(selectedPokemon) + '.png'} alt={`${name}-large-img`} className="w-2/3"></img>
             <div className="flex flex-row gap-2 justify-center">
                 {imgList.map((spriteURL, spriteURLIndex) => {
                     const imgUrl = sprites[spriteURL]
                     
                     return(
-                        <img key={spriteURLIndex} src={imgUrl} alt ={`${name}-img-${spriteURL}`}></img>
+                        <img key={spriteURLIndex} src={imgUrl} alt ={`${name}-img-${spriteURL}`} className=""></img>
                     )
                 })}
             </div>
-            <h3>Stats</h3>
+            <h3 className="font-extrabold text-3xl ">Stats</h3>
             <div>
                 {stats.map((statObj, statIndex) => {
                     const { stat, base_stat } = statObj
                     return (
-                        <div key={statIndex} className="flex flex-row gap-2 justify-center">
+                        <div key={statIndex} className="flex flex-row gap-2 justify-start">
                             <p>{stat?.name.replaceAll('-', ' ')}</p>
                             <h4>{base_stat}</h4>
                         </div>
