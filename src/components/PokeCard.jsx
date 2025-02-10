@@ -8,7 +8,7 @@ export default function PokeCard(props) {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
 
-    const {name, height, abilities, stats, types, sprites} = data || {}
+    const {name, stats, types, sprites} = data || {}
 
     const imgList = Object.keys(sprites || {}).filter(val => {
         if (!sprites[val]) {
@@ -109,7 +109,7 @@ export default function PokeCard(props) {
                     const { stat, base_stat } = statObj
                     return (
                         <div key={statIndex} className="flex flex-row gap-2 justify-start">
-                            <p>{stat?.name.replaceAll('-', ' ')}</p>
+                            <p>{stat?.name.replaceAll('-', ' ')}:</p>
                             <h4>{base_stat}</h4>
                         </div>
                     )
