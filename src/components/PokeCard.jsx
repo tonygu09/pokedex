@@ -86,7 +86,7 @@ export default function PokeCard(props) {
                 <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
                 <h2>{name}</h2>
             </div>
-            <div className="flex flex-row gap-2 justify-center mt-4">
+            <div className="flex flex-row gap-2 justify-start mt-4">
                 {types.map((typeObj, typeIndex) => {
                     return (
                         <TypeCard key={typeIndex} type={typeObj?.type?.name}/>
