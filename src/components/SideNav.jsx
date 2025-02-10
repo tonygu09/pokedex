@@ -51,7 +51,7 @@ export default function SideNav(props) {
                         key={pokemonIndex} 
                         className="flex justify-start items-center py-2 px-4 mb-2 rounded-lg bg-gray-500 hover:bg-gray-700 cursor-pointer duration-300 ease-in"
                         onClick={() => {
-                            setSelectedPokemon(truePokedexNumber)
+                            setSelectedPokemon(truePokeDexNumber)
                         }}>
 
                             <p className="mr-2">{getFullPokedexNumber(first151Pokemon.indexOf(pokemon))}</p>
